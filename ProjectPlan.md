@@ -21,14 +21,14 @@
 - [x] Construct API access controller (Tim)
 - [x] Construct resource classes (Tim)
 - [x] Update index.jsp to include API call and DB search (Tim)
-- [ ] Research how to request HTML/JSON response in request header (Abigail)
-- [ ] Implement outstanding CRUD functions in GenericDao (Nate)
-- [ ] Implement POST/PUT/DELETE verbs in resource classes (Nate/Tim)
-- [ ] Review updated/new classes (review data flow, explain code) (All)
+- [X] Implement outstanding CRUD functions in GenericDao (Nate)
 - [x] Week 10 exercise? (All)
-- [ ] Fill out time log (All)
+- [X] Fill out time log (All)
 
 ### Week 12
+- [ ] Research how to request HTML/JSON response in request header (Abigail)
+- [ ] Implement POST/PUT/DELETE verbs in resource classes (Nate/Tim)
+- [ ] Review updated/new classes (review data flow, explain code) (All)
 - [ ] Create presentation
 - [ ] Polish any last minute changes
 - [ ] Fill out time log
