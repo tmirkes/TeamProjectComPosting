@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.url">jdbc:mysql://awseb-e-bpks2dmv6w-stack-awsebrdsdatabase-mzvfkf3rzp2j.cp6toaqcgq5d.us-east-2.rds.amazonaws.com:3306/com.posting</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>SS
         <property name="connection.username">compostingAPI</property>
         <property name="connection.password">composting_is_fun</property>
 
