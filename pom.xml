@@ -16,11 +16,13 @@
     <junit-vintage-version>5.9.2</junit-vintage-version>
     <jupiter-version>5.9.2</jupiter-version>
     <hibernate-version>6.1.7.Final</hibernate-version>
-    <jersey-version>2.29.1</jersey-version>
+    <jersey-version>3.1.1</jersey-version>
     <javax-servlet-version>3.0.1</javax-servlet-version>
     <gson-version>2.10.1</gson-version>
     <jstl-version>1.2</jstl-version>
     <mysql-version>8.0.32</mysql-version>
+    <jakarta-restful-version>3.1.0</jakarta-restful-version>
+    <jaxb-version>4.0.0</jaxb-version>
   </properties>
   <dependencies>
     <!-- Log4J dependencies (2), user added -->
@@ -84,12 +86,36 @@
       <artifactId>jersey-hk2</artifactId>
       <version>${jersey-version}</version>
     </dependency>
+    <!-- Jakarta EE binding, user added
+    -->
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>${jaxb-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${jaxb-version}</version>
+      <scope>runtime</scope>
+    </dependency>
     <!-- Javax servlet dependency, user added -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>${javax-servlet-version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>${jakarta-restful-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/jakarta.ws.rs/jakarta.ws.rs-api -->
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>${jakarta-restful-version}</version>
     </dependency>
     <!-- Google JSON interpreter dependency, user added
         https://mvnrepository.com/artifact/com.google.code.gson/gson -->
@@ -112,6 +138,8 @@
       <artifactId>mysql-connector-j</artifactId>
       <version>${mysql-version}</version>
     </dependency>
+
+
 
   </dependencies>
   <build>

@@ -3,23 +3,42 @@ package resource;
 import com.google.gson.Gson;
 import entity.*;
 import persistence.*;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-
+/**
+ * Root resource for <code>Service</code> classes, providing <code>GET</code> by ID/<code>PUT</code>/<code>DELETE</code> method handling for the return of result lists via the
+ * <code>Response</code> object.
+ *
+ * @Author tlmirkes
+ * @Version 1.0
+ */
 @Path("/servicesV2/")
 public class servicesV2 {
     private GenericDao<Service> comPoster = new GenericDao(Service.class);
     private Gson gson = new Gson();
 
+    /**
+     * Accepts <code>GET</code> requests, extracts an ID value to search, and returns a <code>text/plain</code> entity within
+     * a <code>Response</code> object containing an appropriate response code.
+     *
+     * @param id Record entity ID to retrieve
+     * @return Response object
+     */
     @GET
     @Path("{id: [0-9]*}")
-    //@Produces("{text/plain}")
     public Response getRequestPlainText(@PathParam("id") int id) {
         String serviceData = comPoster.getById(id).toString();
         return Response.status(200).entity(serviceData).build();
     }
+
+    /**
+     * Accepts <code>GET</code> requests, extracts an ID value to search, and returns a <code>text/html</code> entity within
+     * a <code>Response</code> object containing an appropriate response code.
+     *
+     * @param id Record entity ID to retrieve
+     * @return Response object
+     */
     @GET
     @Path("{id: [0-9]*}")
     @Produces({"text/html"})
@@ -28,6 +47,14 @@ public class servicesV2 {
         String returnHtml = "<h3>Service:</h3><br><p>" + serviceData.getName() + "</p><p>" + serviceData.getDescription() + "</p>";
         return Response.status(200).entity(returnHtml).build();
     }
+
+    /**
+     * Accepts <code>GET</code> requests, extracts an ID value to search, and returns a <code>application/json</code> entity within
+     * a <code>Response</code> object containing an appropriate response code.
+     *
+     * @param id Record entity ID to retrieve
+     * @return Response object
+     */
     @GET
     @Path("{id: [0-9]*}")
     @Produces({"application/json"})
@@ -35,18 +62,19 @@ public class servicesV2 {
         Service serviceData = comPoster.getById(id);
         String formattedData = this.gson.toJson(serviceData);
         return Response.status(200).entity(formattedData).build();
-    }/**
+    }
+
     @PUT
-    @Path("/alter/{id: [0-9]*}")
+    @Path("/alter/{id: [0-9]*}/{name}/{desc}")
     @Consumes("application/x-www-form-urlencoded")
-    public Response putRequest(MultivaluedMap<String, String> formParameters) {
-        int idToEdit = Integer.valueOf(formParameters.get("id").get(0));
-        Service serviceToEdit = comPoster.getById(idToEdit);
-        serviceToEdit.setName(formParameters.get("name").get(0));
-        serviceToEdit.setDescription(formParameters.get("description").get(0));
+    public Response putRequest(@PathParam("id") int id, @PathParam("name") String name, @PathParam("desc") String desc) {
+        Service serviceToEdit = comPoster.getById(id);
+        serviceToEdit.setName(name);
+        serviceToEdit.setDescription(desc);
         comPoster.editEntity(serviceToEdit);
         return Response.status(200).entity(serviceToEdit.toString()).build();
-    }
+    }/**
+
     @DELETE
     @Path("/drop/{id: [0-9]*}")
     public Response deleteRequest(@PathParam("id") int id){

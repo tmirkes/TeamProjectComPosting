@@ -1,15 +1,25 @@
 package controller;
 
 import resource.*;
-
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Primary application controller for the comPosting API.
+ *
+ * @Author tlmirkes
+ * @Version 1.0
+ */
 @ApplicationPath("/comPosting/")
 public class appConfig extends Application {
 
+    /**
+     * Register resource classes in the application and add them to the URI directory.
+     *
+     * @return Set of Class objects of all resource class types
+     */
     @Override
     public Set<Class<?>> getClasses() {
         HashSet functionality = new HashSet<Class<?>>();
