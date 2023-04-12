@@ -5,6 +5,7 @@ import entity.*;
 import persistence.*;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,8 @@ public class servicesV1 {
     private int counter = 0;
 
     @GET
-    @Produces
+    @Path("/plain_text")
+    @Produces({ MediaType.TEXT_PLAIN })
     public Response getRequestAllPlainText() {
         returnData = "";
         counter = 0;
@@ -29,6 +31,7 @@ public class servicesV1 {
         return Response.status(200).entity(returnData).build();
     }
     @GET
+    @Path("/html")
     @Produces({"text/html"})
     public Response getRequestAllHtml() {
         returnData = "";
@@ -41,6 +44,7 @@ public class servicesV1 {
         return Response.status(200).entity(returnData).build();
     }
     @GET
+    @Path("/json")
     @Produces({"application/json"})
     public Response getRequestAllJson() {
         returnData = "";
