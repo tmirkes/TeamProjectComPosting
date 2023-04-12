@@ -15,7 +15,10 @@
 - Three hour meeting, impromptu (Tuesday)
 - Two and a half hour meeting (Wednesday)
 - Tim: 5 hours (Build appConfig, resource classes, update index.JSP)
+- Abigail: 2 hours (research)
 
 ## Week 12
+- One and a half hour meeting (Monday)
+- Abigail: 1 (Updated .war file (AWS), research)
 
 

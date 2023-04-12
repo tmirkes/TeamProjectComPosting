@@ -6,6 +6,9 @@ import persistence.*;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +33,8 @@ public class servicesV1 {
      * @return Response object
      */
     @GET
-    @Produces
+    @Path("/plain_text")
+    @Produces({ MediaType.TEXT_PLAIN })
     public Response getRequestAllPlainText() {
         returnData = "";
         counter = 0;
@@ -49,6 +53,7 @@ public class servicesV1 {
      * @return Response object
      */
     @GET
+    @Path("/html")
     @Produces({"text/html"})
     public Response getRequestAllHtml() {
         returnData = "";
@@ -68,6 +73,7 @@ public class servicesV1 {
      * @return Response object
      */
     @GET
+    @Path("/json")
     @Produces({"application/json"})
     public Response getRequestAllJson() {
         returnData = "";
