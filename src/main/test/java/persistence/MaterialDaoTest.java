@@ -1,9 +1,11 @@
 package java.persistence;
 
-import com.amgenz.entity.*;
+import entity.Material;
 import java.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import persistence.GenericDao;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class MaterialDaoTest {
     GenericDao dao;
-    GenericDao daoInstructions;
-    GenericDao daoIngredients;
 
     /**
      * Creating the dao.
@@ -25,18 +25,16 @@ class MaterialDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
 
-        dao = new GenericDao(Recipe.class);
-        daoInstructions = new GenericDao(RecipeInstruction.class);
-        daoIngredients = new GenericDao(RecipeIngredient.class);
+        dao = new GenericDao(Material.class);
     }
 
     /**
-     * Verifies gets all recipe's success.
+     * Verifies gets all material's success.
      */
     @Test
-    void getAllRecipesSuccess() {
-        List<Recipe> recipes = dao.getAll();
-        assertEquals(3, recipes.size());
+    void getAllMaterialsSuccess() {
+        List<Material> materials = dao.getAll();
+        assertEquals(3, materials.size());
     }
 
     /**
