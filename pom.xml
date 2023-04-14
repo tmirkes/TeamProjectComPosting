@@ -121,12 +121,6 @@
       <artifactId>jakarta.ws.rs-api</artifactId>
       <version>${jakarta-restful-version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/jakarta.ws.rs/jakarta.ws.rs-api -->
-    <dependency>
-      <groupId>jakarta.ws.rs</groupId>
-      <artifactId>jakarta.ws.rs-api</artifactId>
-      <version>${jakarta-restful-version}</version>
-    </dependency>
     <!-- Google JSON interpreter dependency, user added
         https://mvnrepository.com/artifact/com.google.code.gson/gson -->
     <dependency>

@@ -33,10 +33,6 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <servlet>
-    <servlet-name>ResourceRouter</servlet-name>
-    <servlet-class>controller.ResourceRouter</servlet-class>
-  </servlet>
 
 
   <!-- ********************************************************************* -->
@@ -53,10 +49,6 @@
   <servlet-mapping>
     <servlet-name>RESTfulComPost</servlet-name>
     <url-pattern>/comPosting</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ResourceRouter</servlet-name>
-    <url-pattern>/routing</url-pattern>
   </servlet-mapping>
 
   <!-- ********************************************************************* -->
